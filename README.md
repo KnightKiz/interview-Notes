@@ -52,3 +52,19 @@ url上的#及后的值为hash，window.location.hash可以修改url上的#及后
 移动端的click事件会延迟300ms，会后于touchstart,touchend事件发生，因此可能会导致触屏时触发到当前元素后的元素的click事件
 
 解决：采用touch事件代替click事件，或者采用faskclick等插件
+
+### 浏览器缓存
+#### cache-control/expires
+两个都规定了最大约定时间
+cache-control中max-age设定了缓存有效时间，expires设定了缓存失效时间
+
+max-age优先级比expries高
+
+#### Last-Modified/If-Modified-Since
+需要配合Cache-control使用
+Last-Modified 存放上一次更新时间
+If-Modified-Since 表示发送最后一次更新时间，服务器查看和文件最后一次修改时间是否相同，相同返回304，不同200和文件数据，并修改当前值
+
+#### ETag/If-None-Match
+需要配合Cache-control使用
+Etag 表示该文件的唯一字符串的hash值，若缓存有效时间超过了，请求头则会发送If-None-Match，值为Etag相同值，服务器用这个值进行对比，判断文件是否修改，修改了则返回200和文件数据，更新Etag值，没修改则返回304
