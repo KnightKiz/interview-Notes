@@ -47,3 +47,8 @@ url上的#及后的值为hash，window.location.hash可以修改url上的#及后
 
 大型前端路由系统都是用hash来实现的
 
+
+### 移动端点投问题
+移动端的click事件会延迟300ms，会后于touchstart,touchend事件发生，因此可能会导致触屏时触发到当前元素后的元素的click事件
+
+解决：采用touch事件代替click事件，或者采用faskclick等插件
