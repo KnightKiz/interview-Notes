@@ -68,3 +68,6 @@ If-Modified-Since 表示发送最后一次更新时间，服务器查看和文�
 #### ETag/If-None-Match
 需要配合Cache-control使用
 Etag 表示该文件的唯一字符串的hash值，若缓存有效时间超过了，请求头则会发送If-None-Match，值为Etag相同值，服务器用这个值进行对比，判断文件是否修改，修改了则返回200和文件数据，更新Etag值，没修改则返回304
+
+### vue和react,Angular对比
+
